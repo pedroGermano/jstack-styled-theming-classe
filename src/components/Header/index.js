@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Container } from './styles';
 
-export default function Header({ onToggleTheme }) {
-  return (
-    <Container>
+export default class Header extends Component {
+  render () {
+    const { onToggleTheme, selectedTheme } = this.props;
+
+    return (
+      <Container>
       <h1>JStack's Blog</h1>
-      <button type="button" onClick={onToggleTheme}>🌞</button>
+      <button type="button" onClick={onToggleTheme}>
+        { selectedTheme === '' ? '🌞' : '🌑'}
+      </button>
     </Container>
   );
+}
 }
